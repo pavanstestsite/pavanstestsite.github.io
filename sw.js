@@ -4,16 +4,16 @@ self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open('supremecacher').then(function(something) {
       return something.addAll([
-        'https://project002app.github.io/oldindex.html',
-        'https://project002app.github.io/index.html',
-        'https://project002app.github.io/schedules.html',
-        'https://project002app.github.io/calendars.html',
-        'https://project002app.github.io/homestyle.css',
-        'https://project002app.github.io/schedulestyle.css',
-        'https://project002app.github.io/calendarstyle.css',
-        'https://project002app.github.io/app.js',
-        'https://project002app.github.io/favicon.ico',
-        'https://project002app.github.io/project002.webmanifest'
+        'https://pavanstestsite.github.io/oldindex.html',
+        'https://pavanstestsite.github.io/index.html',
+        'https://pavanstestsite.github.io/schedules.html',
+        'https://pavanstestsite.github.io/calendars.html',
+        'https://pavanstestsite.github.io/homestyle.css',
+        'https://pavanstestsite.github.io/schedulestyle.css',
+        'https://pavanstestsite.github.io/calendarstyle.css',
+        'https://pavanstestsite.github.io/app.js',
+        'https://pavanstestsite.github.io/favicon.ico',
+        'https://pavanstestsite.github.io/project002.webmanifest'
       ]);
     })
   );
@@ -39,15 +39,15 @@ self.addEventListener('install', function(e) {
   //Lists the files except the main mass image files to be cached
   /*const cacheName = 'Project 002 Cache';
   const appShellFiles = [
-        'https://project002app.github.io',
-        'https://project002app.github.io/index.html',
-        'https://project002app.github.io/app.js',
-        'https://project002app.github.io/favicon.ico',
-        'https://project002app.github.io/project002.webmanifest',
-        'https://project002app.github.io/style.css',
+        'https://pavanstestsite.github.io',
+        'https://pavanstestsite.github.io/index.html',
+        'https://pavanstestsite.github.io/app.js',
+        'https://pavanstestsite.github.io/favicon.ico',
+        'https://pavanstestsite.github.io/project002.webmanifest',
+        'https://pavanstestsite.github.io/style.css',
         //Now to cache the images
-        //'https://project002app.github.io/img for the main/formula e.jpg',
-        //'https://project002app.github.io/icons for web app/computer 16x16.png',
+        //'https://pavanstestsite.github.io/img for the main/formula e.jpg',
+        //'https://pavanstestsite.github.io/icons for web app/computer 16x16.png',
   ];*/
   /*Uh note: do not cache content.js file bc MDN said "You may notice we haven't cached game.js.
   This is the file that contains the data we use when displaying our games. In reality this 
