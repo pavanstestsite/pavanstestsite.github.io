@@ -1,43 +1,38 @@
+self.addEventListener("install", function (e) {
+	e.waitUntil(
+		caches.open("supremecacher").then(function (something) {
+			return something.addAll([
+				"https://pavanstestsite.github.io/oldindex.html",
+				"https://pavanstestsite.github.io/index.html",
+				"https://pavanstestsite.github.io/schedules.html",
+				"https://pavanstestsite.github.io/calendars.html",
+				"https://pavanstestsite.github.io/homestyle.css",
+				"https://pavanstestsite.github.io/schedulestyle.css",
+				"https://pavanstestsite.github.io/calendarstyle.css",
+				"https://pavanstestsite.github.io/app.js",
+				"https://pavanstestsite.github.io/favicon.ico",
+				"https://pavanstestsite.github.io/project002.webmanifest",
+			]);
+		}),
+	);
+});
+console.log("Cache is made and service worker installed");
 
-
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open('supremecacher').then(function(something) {
-      return something.addAll([
-        'https://pavanstestsite.github.io/oldindex.html',
-        'https://pavanstestsite.github.io/index.html',
-        'https://pavanstestsite.github.io/schedules.html',
-        'https://pavanstestsite.github.io/calendars.html',
-        'https://pavanstestsite.github.io/homestyle.css',
-        'https://pavanstestsite.github.io/schedulestyle.css',
-        'https://pavanstestsite.github.io/calendarstyle.css',
-        'https://pavanstestsite.github.io/app.js',
-        'https://pavanstestsite.github.io/favicon.ico',
-        'https://pavanstestsite.github.io/project002.webmanifest'
-      ]);
-    })
-  );
- });
- console.log('Cache is made and service worker installed');
-
-
- //Now to respond to network requests
- self.addEventListener('fetch', function(e) {
-  console.log(e.request.url);
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
-    })
-  );
+//Now to respond to network requests
+self.addEventListener("fetch", function (e) {
+	console.log(e.request.url);
+	e.respondWith(
+		caches.match(e.request).then(function (response) {
+			return response || fetch(e.request);
+		}),
+	);
 });
 
 //The code after this is not needed
 
-
-
 //This code will cache the app shell
-  //Lists the files except the main mass image files to be cached
-  /*const cacheName = 'Project 002 Cache';
+//Lists the files except the main mass image files to be cached
+/*const cacheName = 'Project 002 Cache';
   const appShellFiles = [
         'https://pavanstestsite.github.io',
         'https://pavanstestsite.github.io/index.html',
@@ -49,18 +44,18 @@ self.addEventListener('install', function(e) {
         //'https://pavanstestsite.github.io/img for the main/formula e.jpg',
         //'https://pavanstestsite.github.io/icons for web app/computer 16x16.png',
   ];*/
-  /*Uh note: do not cache content.js file bc MDN said "You may notice we haven't cached game.js.
+/*Uh note: do not cache content.js file bc MDN said "You may notice we haven't cached game.js.
   This is the file that contains the data we use when displaying our games. In reality this 
   data would most likely come from an API endpoint or database and caching the data would 
   mean updating it periodically when there was network connectivity. We won't go into that 
   here, but the Periodic Background Sync API is good further reading on this topic."*/
-  //https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers
-  
-  //console.log("appShellFiles array is made");
+//https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers
+
+//console.log("appShellFiles array is made");
 
 /*Gets the main mass image files and puts them in an array, and combines that array
 with the one before this to create a thingy that will have all of the stuff to cache*/
-  /*const specialholderofimage = [];
+/*const specialholderofimage = [];
   for (let i = 0; i < content.length; i++) {
     specialholderofimage.push(`data/contentimages/${content[i].imageholder}.png`);
   }
@@ -77,9 +72,8 @@ with the one before this to create a thingy that will have all of the stuff to c
       console.log("If I read this, then the service worker is reinstalled and stuff is cached");
     })());
   });*/
-  
-  
-  /*const appShellFiles = [
+
+/*const appShellFiles = [
     '/pwa-examples/js13kpwa/',
     '/pwa-examples/js13kpwa/index.html',
     '/pwa-examples/js13kpwa/app.js',
@@ -99,4 +93,3 @@ with the one before this to create a thingy that will have all of the stuff to c
     '/pwa-examples/js13kpwa/icons/icon-256.png',
     '/pwa-examples/js13kpwa/icons/icon-512.png'
   ];*/
-    
